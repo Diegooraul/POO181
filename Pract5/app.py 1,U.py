@@ -48,11 +48,22 @@ def editar(id):
   cursoId=mysql.connection.cursor()
   cursoId.execute('select * from tbalbums where id= %s',(id,))
   consulID= cursoId.fetchone()
-  peint(consulID)
+  print(consulID)
   return render_template('editarAlbum.html',album=consulID)
 
 @app.route('/actualizar/<id>',methods=['POST'])
 def actualizar(id):
+    if request.method == 'POST':
+        varTitulo= request.form['txtTitulo']
+        varArtista= request.form['txtArtista']
+        varAnio= request.form['txtAnio']
+        
+        curAct= mysql.connection.cursor()
+        curAct.execute('update tbalbums set titulo= %s, artista= %s, anio= %s where id= %s',(varTitulo,varArtista,varAnio,id))
+        mysql.connection.commit()
+
+    flash('Se actualizo el Album'+varTitulo)
+    return redirect(url_for('index'))
 
 
 
