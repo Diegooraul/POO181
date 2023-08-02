@@ -62,7 +62,7 @@ def actualizar(id):
         curAct.execute('update tbalbums set titulo= %s, artista= %s, anio= %s where id= %s',(varTitulo,varArtista,varAnio,id))
         mysql.connection.commit()
 
-    flash('Se actualizo el Album'+varTitulo)
+    flash('Se actualizo el Album: '+varTitulo)
     return redirect(url_for('index'))
 
 @app.route('/eliminar/<id>')

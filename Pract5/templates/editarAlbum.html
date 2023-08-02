@@ -3,13 +3,17 @@
 {% extends 'plantilla.html'%}
 
 {% block body %}
-<div class="container">
 
-    <div class="row">
+<div class="container"></div>
+
+<h1 class="display-1 text-center"> Album a editar: </h1>
+
+
+    <div class="row justify-content-center">
       <div class="col-md-5">
         <div class="card card-body mb-5">
-    <h1 class="display-1 text-center"> Album a editar: </h1>
-</div>
+
+
 
     <form action="/actualizar/{{album.0}}" method="post">
 
@@ -28,7 +32,6 @@
         </div>
 
     </form>
-</div>
 </div>
 </div>
  {% endblock %}
