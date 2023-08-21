@@ -1,0 +1,38 @@
+{% extends 'plantilla.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-1 text-center">Consulta de Frutas por Nombre</h1>
+    <form method="post" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre de la fruta">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fruta</th>
+                <th>Temporada</th>
+                <th>Precio</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fruta in frutas %}
+            <tr>
+                <td>{{ fruta[0] }}</td>
+                <td>{{ fruta[1] }}</td>
+                <td>{{ fruta[2] }}</td>
+                <td>{{ fruta[3] }}</td>
+                <td>{{ fruta[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
