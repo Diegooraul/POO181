@@ -1,0 +1,37 @@
+{% extends 'plantilla.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-1 text-center">Consulta de Utiles por Categoria</h1>
+    <form method="post" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre del util escolar">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fruta in frutas %}
+            <tr>
+                <td>{{ fruta[0] }}</td>
+                <td>{{ fruta[1] }}</td>
+                <td>{{ fruta[2] }}</td>
+                <td>{{ fruta[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('regresar') }}">REGRESAR</a>
+</div>
+
+{% endblock %}

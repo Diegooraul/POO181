@@ -1,0 +1,77 @@
+
+{% extends 'plantilla.html'%}
+{% block body %}
+    
+   
+    <div class="mt-5 mb-5">
+    <h1 class="display-1 text-center">Registra a tu Empleado</h1>
+    </div>
+
+   
+   <div class="container"> 
+
+    {% with mensajes= get_flashed_messages() %}
+    {% if mensajes %}
+       {% for msj in mensajes %}
+
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+           <strong>{{ msj }}</strong>
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>     
+
+         <script> Swal.fire('Correcto','La solicitud se hizo correctamente','Hecho')</script>
+       {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card card-body mb-5">
+
+          <form action="/guardarempleado" method="post">
+
+            <div class="mb-3">
+              <input type="text" class="form-control" name="NOMBRE" placeholder="Escribe el nombre">
+
+            </div>
+
+            <div class="mb-3">
+             <input type="text" class="form-control" name="APP" placeholder="Escribe el apellido paterno">
+
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" name="APM" placeholder="Escribe el apellido materno">
+           
+            </div>  
+
+            <div class="mb-3">
+                <input type="text" class="form-control" name="PUESTO" placeholder="Escribe el puesto">
+             
+              </div>  
+
+            <div class="mb-3">
+                <input type="text" class="form-control" name="CONTRASEÑA" placeholder="Escribe la contraseña">
+             
+            </div>    
+        
+            <div class="d-grid gap-2">
+              <button type="submit" class= "btn btn-outline-secondary"> Guardar</button>
+            </div>
+
+            
+        </form>
+        <li class="nav-item">
+            <a class="nav-link" href="/consulta_empleado">CONSULTAR EMPLEADOS</a>
+        </li>
+        </div>
+
+      </div>
+
+    </div>
+    </div>  
+
+
+
+
+    {% endblock %}

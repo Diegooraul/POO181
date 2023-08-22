@@ -1,0 +1,41 @@
+{% extends 'plantilla.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h1 class="display-1 text-center">Consulta de Empleados por nombre</h1>
+    <form method="post" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre del empleado">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APP</th>
+                <th>APM</th>
+                <th>PUESTO</th>
+                <th>CONTRASEÑA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleados in empleados %}
+            <tr>
+                <td>{{ empleados[0] }}</td>
+                <td>{{ empleados[1] }}</td>
+                <td>{{ empleados[2] }}</td>
+                <td>{{ empleados[3] }}</td>
+                <td>{{ empleados[4] }}</td>
+                <td>{{ empleados[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('regresar') }}">REGRESAR</a>
+</div>
+
+{% endblock %}

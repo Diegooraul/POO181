@@ -1,0 +1,37 @@
+   
+   
+{% extends 'plantilla.html'%}
+
+{% block body %}
+
+<div class="container"></div>
+
+<h1 class="display-1 text-center"> Util escolar a editar: </h1>
+
+
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card card-body mb-5">
+
+
+
+            <form action="/actualizar/{{album.0}}" method="post">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="NOMBRE_CLASIFICACION" value="{{album.1}}">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="CANTIDAD" value="{{album.2}}">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" name="PRECIO_COMPRA" value="{{album.3}}">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-secondary">Actualizar</button>
+                    <a href="{{ url_for('regresar') }}">REGRESAR</a>
+                </div>
+            </form>
+            
+</div>
+</div>
+ {% endblock %}
